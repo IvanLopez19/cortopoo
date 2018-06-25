@@ -145,9 +145,9 @@ public class Consulta extends JFrame{
         tm.addColumn("Sotck en Sucursal");
         
         ProductoDao fd=new ProductoDao();
-        ArrayList<Producto> filtros= fd.readAll();
+        ArrayList<Producto> productos= fd.readAll();
         
-        for(Producto f1:filtros){
+        for(Producto f1:productos){
             tm.addRow(new Object[]{f1.getCodigo(), f1.getTipo(), f1.getPrecio(), f1.getCantidad(),f1.getDisponibilidad()});
         }
         
@@ -159,7 +159,7 @@ public class Consulta extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ProductoDao fd= new ProductoDao();
-                Producto f= new Producto(nombre.getText(),codigo.getText(),Integer.parseInt(precio.getText()),tipo.getSelectedItem().toString(),Integer.parseInt(cantidad.getText()),true);
+                Producto f= new Producto(nombre.getText(),codigo.getText(),Integer.parseInt(precio.getText()),Integer.parseInt(cantidad.getText()),true);
                 
                 if(no.isSelected()){
                     f.setDisponibilidad(false);
@@ -179,7 +179,7 @@ public class Consulta extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ProductoDao fd= new ProductoDao();
-                Producto f = new Producto(nombre.getText(),codigo.getText(),Integer.parseInt(precio.getText()),tipo.getSelectedItem().toString(),Integer.parseInt(cantidad.getText()),true);
+                Producto f = new Producto(nombre.getText(),codigo.getText(),Integer.parseInt(precio.getText()),Integer.parseInt(cantidad.getText()),true);
                 
                 if(no.isSelected()){
                     f.setDisponibilidad(false);
